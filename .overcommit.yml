@@ -1,0 +1,25 @@
+PreCommit:
+  EsLint:
+    enabled: true
+    include:
+      - '**/*.js'
+      - '**/*.jsx'
+
+  HamlLint:
+    enabled: true
+
+  HardTabs:
+    enabled: true
+
+  RailsSchemaUpToDate:
+    enabled: true
+
+  RuboCop:
+    enabled: true
+    command: ['bundle', 'exec', 'rubocop']
+
+  ScssLint:
+    enabled: true
+
+  YamlSyntax:
+    enabled: true
