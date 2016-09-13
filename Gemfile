@@ -8,6 +8,7 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap', '~> 4.0.0.alpha4'
+gem 'font-awesome-sass'
 
 gem 'jbuilder', '~> 2.5'
 
