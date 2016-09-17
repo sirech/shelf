@@ -9,3 +9,9 @@ Documentation:
 
 Metrics/LineLength:
   Max: 100
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
