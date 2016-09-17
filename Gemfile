@@ -18,6 +18,9 @@ gem 'mysql2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  gem 'factory_girl_rails', require: false
+  gem 'faker'
 end
 
 group :development do
@@ -35,6 +38,11 @@ group :development do
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'scss_lint'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'database_cleaner', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
