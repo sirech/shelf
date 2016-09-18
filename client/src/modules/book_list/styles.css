@@ -1,0 +1,27 @@
+:root {
+  --border-color: #ECEEEF;
+}
+
+.book {
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  padding: 0.75rem;
+
+  &:last-of-type {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  &:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, .05);
+  }
+}
+
+.book h5 {
+  flex-grow: 1;
+  margin: 0;
+}
+
+.stars {
+  color: #FFCD51;
+  margin-left: 0.25rem;
+}

@@ -8,4 +8,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get '/*react', to: 'clients#index'
 end

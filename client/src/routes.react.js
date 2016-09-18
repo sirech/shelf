@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react'
-import { IndexRoute, Route } from 'react-router'
+import { Route } from 'react-router'
 
 import styles from './styles.css'
 
+import BookList from './modules/book_list'
 import Header from './modules/header'
 
 class Shell extends React.Component {
@@ -11,7 +12,9 @@ class Shell extends React.Component {
       <div>
         <Header />
         <div className={`container-fluid ${styles.container}`}>
-          {this.props.children}
+          <div className='row'>
+            {this.props.children}
+          </div>
         </div>
       </div>
     )
@@ -24,5 +27,6 @@ Shell.propTypes = {
 
 export default (
   <Route path='/' component={Shell}>
+    <Route path='/books/:year' component={BookList} />
   </Route>
 )
