@@ -25,6 +25,7 @@
     "extends": "./node_modules/hops/etc/.stylelintrc"
   },
   "dependencies": {
+    "classnames": "2.2.5",
     "hops": "1.0.0-beta.8"
   }
 }

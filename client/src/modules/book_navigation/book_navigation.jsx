@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import classNames from 'classnames'
 
 import { fetchYears } from './actions'
 import { select } from './reducers'
 
 const Item = ({year, count, activeYear}) => (
-  <Link key={year} to={`/books/${year}`} className={`list-group-item list-group-item-action ${activeYear === year ? 'active' : ''}`}>
+  <Link key={year} to={`/books/${year}`} className={classNames('list-group-item', 'list-group-item-action', { 'active': activeYear === year })}>
     <span>{year}</span>
     <span className='tag tag-warning tag-pill pull-xs-right'>{count}</span>
   </Link>
