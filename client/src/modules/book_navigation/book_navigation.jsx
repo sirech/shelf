@@ -27,7 +27,7 @@ class BookNavigation extends React.Component {
     const { active, years } = this.props
     return (
       <div className='list-group'>
-        {years.reverse().map((year) =>
+        {years.map((year) =>
           <Item key={year.year} year={year.year} count={year.count} activeYear={active} />
          )}
       </div>

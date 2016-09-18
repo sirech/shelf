@@ -4,7 +4,7 @@ import { RECEIVE_YEARS } from './actions'
 function years (state = {}, action) {
   switch (action.type) {
     case RECEIVE_YEARS:
-      return { ...state, years: action.years }
+      return { ...state, years: action.years.reverse() }
     default:
       return state
   }
