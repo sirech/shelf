@@ -5,16 +5,16 @@ import { Link } from 'react-router'
 import { fetchYears } from './actions'
 import { select } from './reducers'
 
-import styles from './styles.css'
-
-const Item = ({year, activeYear}) => (
+const Item = ({year, count, activeYear}) => (
   <Link key={year} to={`/books/${year}`} className={`list-group-item list-group-item-action ${activeYear === year ? 'active' : ''}`}>
     <span>{year}</span>
+    <span className='tag tag-warning tag-pill pull-xs-right'>{count}</span>
   </Link>
 )
 
 Item.propTypes = {
   year: PropTypes.number.isRequired,
+  count: PropTypes.number.isRequired,
   activeYear: PropTypes.number.isRequired
 }
 
@@ -26,9 +26,9 @@ class BookNavigation extends React.Component {
   render () {
     const { active, years } = this.props
     return (
-      <div className={`list-group ${styles.navigation}`}>
+      <div className='list-group'>
         {years.map((year) =>
-          <Item key={year} year={year} activeYear={active} />
+          <Item key={year.year} year={year.year} count={year.count} activeYear={active} />
          )}
       </div>
     )

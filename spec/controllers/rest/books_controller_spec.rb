@@ -55,15 +55,12 @@ describe Rest::BooksController, type: :controller do
       create(:book, year: 2011)
       create(:book, year: 2010)
       create(:book, year: 2014)
-      create(:book, year: 2015)
-      create(:book, year: 2016)
     end
 
     it 'returns a sorted list of available years' do
-      create(:book, year: 2011)
       subject
       expect(response).to be_ok
-      expect(json_response!).to eq([2010, 2011, 2014, 2015, 2016])
+      expect(json_response!).to eq([{ 'year' => 2010, 'count' => 1 }, { 'year' => 2011, 'count' => 2 }, { 'year' => 2014, 'count' => 1 }])
     end
   end
 end

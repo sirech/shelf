@@ -7,7 +7,7 @@ module Rest
     end
 
     def years
-      @years = Book.group(:year).count.keys.sort
+      @years = Book.group(:year).count.sort
     end
   end
 end
