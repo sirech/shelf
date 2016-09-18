@@ -9,13 +9,11 @@ const Category = ({name, books}) => (
     <div className='card-header'>
       <h4>{name}</h4>
     </div>
-    <div className='card-block'>
-      <ul className='list-unstyled'>
-        {books.map((book) =>
-          <Book key={book.id} {...book} />
-         )}
-      </ul>
-    </div>
+    <ul className='list-unstyled m-b-0'>
+      {books.map((book) =>
+        <Book key={book.id} {...book} />
+       )}
+    </ul>
   </div>
 )
 
