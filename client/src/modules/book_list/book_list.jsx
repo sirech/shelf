@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { fetchBooks } from './actions'
 import { select } from './reducers'
 
-import Book from './book'
+import Category from './category'
 
 class BookList extends React.Component {
   componentDidMount () {
@@ -20,14 +20,36 @@ class BookList extends React.Component {
     }
   }
 
+  groupByCategory (books) {
+    let groups = new Map()
+
+    for (const book of books) {
+      if (!groups.has(book.category)) {
+        groups.set(book.category, [])
+      }
+
+      groups.get(book.category).push(book)
+    }
+
+    return groups
+  }
+
+  renderCategoryGroups (groups) {
+    let categories = []
+
+    for (let [category, books] of groups.entries()) {
+      categories.push(<Category key={category} name={category} books={books} />)
+    }
+
+    return categories
+  }
+
   render () {
     const { books } = this.props
     return (
-      <ul className='list-unstyled col-sm-8'>
-        {books.map(book =>
-          <Book key={book.id} {...book} />
-        )}
-      </ul>
+      <div className='col-sm-8'>
+        {this.renderCategoryGroups(this.groupByCategory(books))}
+      </div>
     )
   }
 }

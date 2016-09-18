@@ -2,6 +2,14 @@
   --border-color: #ECEEEF;
 }
 
+.category {
+
+}
+
+.category h4 {
+  text-transform: capitalize;
+}
+
 .book {
   border-top: 1px solid var(--border-color);
   display: flex;
@@ -11,7 +19,7 @@
     border-bottom: 1px solid var(--border-color);
   }
 
-  &:nth-of-type(odd) {
+  &:nth-of-type(even) {
     background-color: rgba(0, 0, 0, .05);
   }
 }
