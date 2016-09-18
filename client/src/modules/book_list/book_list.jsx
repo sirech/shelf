@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { fetchBooks } from './actions'
 import { select } from './reducers'
 
+import BookCreator from './../book_creator'
 import BookNavigation from './../book_navigation'
 import Category from './category'
 
@@ -50,6 +51,7 @@ class BookList extends React.Component {
     return (
       <div className='row' >
         <div className='col-sm-8 col-md-9 col-lg-10'>
+          <BookCreator />
           {this.renderCategoryGroups(this.groupByCategory(books))}
         </div>
         <div className='col-sm-4 col-md-3 col-lg-2'>
