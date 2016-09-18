@@ -1,3 +1,3 @@
-web: REACT_ON_RAILS_ENV=hot PORT=3000 bundle exec rails s
+web: REACT_ON_RAILS_ENV=hot PORT=3000 bin/rails s
 webpack: REACT_ON_RAILS_ENV=hot cd client && npm run watch
 

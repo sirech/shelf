@@ -37,7 +37,7 @@ group :development do
   gem 'overcommit'
   gem 'rubocop'
   gem 'rubocop-rspec'
-  gem 'scss_lint'
+  gem 'scss_lint', require: false
 end
 
 group :test do
