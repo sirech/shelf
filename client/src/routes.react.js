@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { Route } from 'react-router'
+import { Route, Redirect } from 'react-router'
 
 import styles from './styles.css'
 
@@ -23,8 +23,11 @@ Shell.propTypes = {
   children: PropTypes.node
 }
 
+const year = new Date().getFullYear()
+
 export default (
   <Route path='/' component={Shell}>
     <Route path='/books/:year' component={BookList} />
+    <Redirect from='/books' to={`/books/${year}`} />
   </Route>
 )
