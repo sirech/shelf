@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { fetchBooks } from './actions'
 import { select } from './reducers'
 
+import BookNavigation from './../book_navigation'
 import Category from './category'
 
 class BookList extends React.Component {
@@ -47,8 +48,13 @@ class BookList extends React.Component {
   render () {
     const { books } = this.props
     return (
-      <div className='col-sm-8'>
-        {this.renderCategoryGroups(this.groupByCategory(books))}
+      <div className='row' >
+        <div className='col-sm-8 col-md-9 col-lg-10'>
+          {this.renderCategoryGroups(this.groupByCategory(books))}
+        </div>
+        <div className='col-sm-4 col-md-3 col-lg-2'>
+          <BookNavigation active={parseInt(this.props.params.year)} />
+        </div>
       </div>
     )
   }

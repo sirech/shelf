@@ -12,9 +12,7 @@ class Shell extends React.Component {
       <div>
         <Header />
         <div className={`container-fluid ${styles.container}`}>
-          <div className='row'>
-            {this.props.children}
-          </div>
+          {this.props.children}
         </div>
       </div>
     )
