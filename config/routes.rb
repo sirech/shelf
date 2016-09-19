@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get '/' => 'clients#index'
 
   namespace 'rest' do
-    resources :books, only: %i(index) do
+    resources :books, only: %i(index create) do
       collection do
         get 'years'
       end
