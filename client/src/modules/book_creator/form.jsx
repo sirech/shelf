@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react'
+import ReactDOM from 'react-dom'
 import { Field, Form as FormBuilder } from 'react-redux-form'
-
-import './reducers'
 
 import styles from './styles.css'
 
@@ -20,12 +19,17 @@ FieldHelper.propTypes = {
 }
 
 class Form extends React.Component {
+  componentDidMount () {
+    ReactDOM.findDOMNode(this.refs.titleInput).focus()
+  }
+
   render () {
+    const { onSubmit, attachNode } = this.props
     return (
       <div className='container' >
-        <FormBuilder model='newBook' className={`${styles.form}`}>
+        <FormBuilder model='newBook' className={`${styles.form}`} onSubmit={onSubmit} ref={attachNode}>
           <FieldHelper name='title'>
-            <input type='text' id='book_title' className='form-control' placeholder='Catch-22' />
+            <input type='text' id='book_title' className='form-control' placeholder='Catch-22' ref='titleInput' />
           </FieldHelper>
 
           <FieldHelper name='year'>
@@ -56,7 +60,11 @@ class Form extends React.Component {
       </div>
     )
   }
+}
 
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  attachNode: PropTypes.func.isRequired
 }
 
 export default Form
