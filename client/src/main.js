@@ -3,5 +3,5 @@ import routes from './routes.react'
 
 export default render({
   routes,
-  initialState: {}
+  initialState: global.INITIAL_STATE ? global.INITIAL_STATE : {}
 })

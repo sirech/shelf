@@ -12,7 +12,9 @@
   <body>
     <main><%- dom %></main>
     <script>
-      INITIAL_DATA = <%- JSON.stringify(initialData) %>;
+      INITIAL_DATA = {
+        categories: <%%= Book.categories.keys.to_json.html_safe %>
+      }
       INITIAL_STATE = <%- state %>;
     </script>
     <% if (process.env.NODE_ENV === 'production') { %>

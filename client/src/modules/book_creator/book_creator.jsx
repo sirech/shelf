@@ -2,6 +2,8 @@ import React from 'react'
 import classNames from 'classnames'
 import Modal from 'react-bootstrap-modal'
 
+import Form from './form'
+
 import styles from './styles.css'
 
 class BookCreator extends React.Component {
@@ -33,9 +35,10 @@ class BookCreator extends React.Component {
             <Modal.Title id='ModalHeader'>Add Button</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            Content
+            <Form />
           </Modal.Body>
           <Modal.Footer>
+            <button className='btn btn-primary m-r-1'>Create</button>
             <Modal.Dismiss className='btn btn-default'>Cancel</Modal.Dismiss>
           </Modal.Footer>
         </Modal>

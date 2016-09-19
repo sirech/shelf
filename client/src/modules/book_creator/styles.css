@@ -11,3 +11,9 @@
 .modal {
   display: block;
 }
+
+.form {
+  & label {
+    text-transform: capitalize
+  }
+}

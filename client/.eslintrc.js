@@ -22,5 +22,8 @@ module.exports = {
   "plugins": [
     "standard",
     "react"
-  ]
+  ],
+  "globals": {
+    "INITIAL_DATA": true
+  }
 };
