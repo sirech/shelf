@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import Modal from 'react-bootstrap-modal'
 
-import './reducers'
+import { createBook, openForm, closeForm } from './actions'
+import { select } from './reducers'
 
 import Form from './form'
 
@@ -13,22 +15,9 @@ class BookCreator extends React.Component {
   constructor () {
     super()
 
-    this.state = { modalOpen: false }
-
-    this.openModal = this.openModal.bind(this)
-    this.closeModal = this.closeModal.bind(this)
-
     this.attachNode = this.attachNode.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  openModal () {
-    this.setState({ modalOpen: true })
-  }
-
-  closeModal () {
-    this.setState({ modalOpen: false })
   }
 
   attachNode (node) {
@@ -40,17 +29,18 @@ class BookCreator extends React.Component {
   }
 
   handleSubmit (book) {
+    this.props.createBook(book)
   }
 
   render () {
     return (
       <div>
-        <button type='button' className={classNames('btn', 'btn-success', styles.toggleButton)} onClick={this.openModal}>
+        <button type='button' className={classNames('btn', 'btn-success', styles.toggleButton)} onClick={() => this.props.openForm()}>
           <i className='fa fa-plus fa-lg' />
           Add Book
         </button>
 
-        <Modal show={this.state.modalOpen} onHide={this.closeModal} className={`${styles.modal}`}>
+        <Modal show={this.props.opened} onHide={() => this.props.closeForm()} className={`${styles.modal}`}>
           <Modal.Header closeButton>
             <Modal.Title id='ModalHeader'>Add Book</Modal.Title>
           </Modal.Header>
@@ -67,4 +57,11 @@ class BookCreator extends React.Component {
   }
 }
 
-export default BookCreator
+BookCreator.propTypes = {
+  opened: PropTypes.bool.isRequired,
+  createBook: PropTypes.func.isRequired,
+  openForm: PropTypes.func.isRequired,
+  closeForm: PropTypes.func.isRequired
+}
+
+export default connect(select, { createBook, openForm, closeForm })(BookCreator)
