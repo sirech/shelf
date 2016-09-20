@@ -28,6 +28,7 @@
     "classnames": "2.2.5",
     "hops": "1.0.0-beta.8",
     "react-redux-form": "0.14.4",
-    "react-bootstrap-modal": "3.0.0"
+    "react-bootstrap-modal": "3.0.0",
+    "normalizr": "2.2.1"
   }
 }

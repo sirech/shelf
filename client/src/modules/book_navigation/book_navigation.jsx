@@ -25,11 +25,11 @@ class BookNavigation extends React.Component {
   }
 
   render () {
-    const { active, years } = this.props
+    const { active, result, entities } = this.props
     return (
       <div className='list-group'>
-        {years.map((year) =>
-          <Item key={year.year} year={year.year} count={year.count} activeYear={active} />
+        {result.map((year) =>
+          <Item key={year} activeYear={active} {...entities.years[year]} />
          )}
       </div>
     )
@@ -39,11 +39,13 @@ class BookNavigation extends React.Component {
 BookNavigation.propTypes = {
   active: PropTypes.number.isRequired,
   fetchYears: PropTypes.func.isRequired,
-  years: PropTypes.array.isRequired
+  result: PropTypes.array.isRequired,
+  entities: PropTypes.object.isRequired
 }
 
 BookNavigation.defaultProps = {
-  years: []
+  result: [],
+  entities: {}
 }
 
 export default connect(select, { fetchYears })(BookNavigation)

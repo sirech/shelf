@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+import { normalize, Schema, arrayOf } from 'normalizr'
 
 export const REQUEST_YEARS = 'years:request'
 export const RECEIVE_YEARS = 'years:receive'
@@ -12,6 +13,11 @@ const receiveYears = (years) => ({
   years: years
 })
 
+const format = (data) => {
+  const schema = new Schema('years', { idAttribute: 'year' })
+  return normalize(data.reverse(), arrayOf(schema))
+}
+
 export function fetchYears () {
   return (dispatch) => {
     dispatch(requestYears())
@@ -21,6 +27,7 @@ export function fetchYears () {
 
     return fetch(url, { headers })
       .then((response) => response.json())
+      .then((data) => format(data))
       .then((data) => dispatch(receiveYears(data)))
   }
 }
