@@ -1,1 +1,1 @@
-json.array! @books, :id, :title, :description, :year, :stars, :category
+json.array! @books, partial: 'rest/books/book', as: :book

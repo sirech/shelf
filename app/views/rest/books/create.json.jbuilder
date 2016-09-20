@@ -1,1 +1,1 @@
-json.extract! @book, :id
+json.partial! 'rest/books/book', book: @book
