@@ -42,12 +42,14 @@ export function createBook (book) {
     const body = JSON.stringify({ book })
 
     return fetch(url, { headers, method, body })
-      .then((response) => {
+      .then(response => {
         if (response.status === 422) {
-          dispatch(bookCreationFailed(response.json()))
-        } else {
-          dispatch(bookCreated(response.json()))
+          return response.json().then(err => { throw err })
         }
+        return response
       })
+      .then(response => response.json())
+      .then(data => dispatch(bookCreated(data)))
+      .catch(error => dispatch(bookCreationFailed(error)))
   }
 }
