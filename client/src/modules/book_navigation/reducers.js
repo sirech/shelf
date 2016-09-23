@@ -3,6 +3,11 @@ import { register } from 'hops'
 import { RECEIVE_YEARS } from './actions'
 import { CREATE_BOOK_SUCCESS } from '../book_creator/actions'
 
+function extractYear (payload) {
+  const path = payload.pathname
+  return parseInt(path.split('/').reverse()[0])
+}
+
 function insertEntity (state, entityName, newEntity, key = 'id') {
   return update(state, {
     entities: {
@@ -39,6 +44,8 @@ function updateCounter (state, year) {
 
 function years (state = {}, action) {
   switch (action.type) {
+    case '@@router/LOCATION_CHANGE':
+      return { ...state, activeYear: extractYear(action.payload) }
     case RECEIVE_YEARS:
       return { ...state, ...action.years }
     case CREATE_BOOK_SUCCESS:
