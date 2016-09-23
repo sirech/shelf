@@ -1,22 +1,10 @@
 import React, { PropTypes } from 'react'
 import ReactDOM from 'react-dom'
-import { Field, Form as FormBuilder } from 'react-redux-form'
+import { Form as FormBuilder } from 'react-redux-form'
+
+import FieldHelper from './field_helper'
 
 import styles from './styles.css'
-
-const FieldHelper = ({name, children}) => (
-  <Field model={`newBook.${name}`} >
-    <div className='form-group' >
-      <label htmlFor={`book_${name}`}>{name}</label>
-      {children}
-    </div>
-  </Field>
-)
-
-FieldHelper.propTypes = {
-  name: PropTypes.string.isRequired,
-  children: PropTypes.node
-}
 
 class Form extends React.Component {
   componentDidMount () {
