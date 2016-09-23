@@ -13,6 +13,11 @@ module.exports = {
     "jsx-quotes": [
       "error",
       "prefer-single"
+    ],
+    "indent": [
+      "error",
+      2,
+      { "SwitchCase": 0 }
     ]
   },
   "extends": [
