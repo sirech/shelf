@@ -10,18 +10,18 @@ const initialState = {
 }
 
 register('newBook', modelReducer('newBook', initialState))
-register('redux-bookForm', formReducer('bookForm', initialState))
+register('redux-bookForm', formReducer('newBook', initialState))
 
 function bookForm (state = { opened: false }, action) {
   switch (action.type) {
-    case OPEN_BOOK_FORM:
-      return {...state, opened: true}
-    case CLOSE_BOOK_FORM:
-      return {...state, opened: false}
-    case CREATE_BOOK_SUCCESS:
-      return {...state, opened: false}
-    default:
-      return state
+  case OPEN_BOOK_FORM:
+    return {...state, opened: true}
+  case CLOSE_BOOK_FORM:
+    return {...state, opened: false}
+  case CREATE_BOOK_SUCCESS:
+    return {...state, opened: false}
+  default:
+    return state
   }
 }
 
