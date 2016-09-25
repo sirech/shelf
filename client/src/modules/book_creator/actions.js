@@ -51,7 +51,14 @@ export function createBook (book) {
       })
       .then(response => response.json())
       .then(data => dispatch(bookCreated(data)))
+      .then(() => dispatch(resetForm()))
       .catch(error => dispatch(bookCreationFailed(error)))
+  }
+}
+
+function resetForm () {
+  return (dispatch) => {
+    dispatch(actions.reset('newBook'))
   }
 }
 
