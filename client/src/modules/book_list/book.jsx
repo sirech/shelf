@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-import Stars from './stars'
+import Stars from './../stars'
 
 import styles from './styles.css'
 
