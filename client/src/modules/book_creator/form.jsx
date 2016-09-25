@@ -1,14 +1,18 @@
 import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
 import { Form as FormBuilder } from 'react-redux-form'
 
 import FieldHelper from './field_helper'
 import Input from './input'
+import Stars from './../stars'
+
+import { changeStars } from './actions'
 
 import styles from './styles.css'
 
 class Form extends React.Component {
   render () {
-    const { onSubmit, attachNode } = this.props
+    const { stars, onSubmit, attachNode } = this.props
     return (
       <div className='container' >
         <FormBuilder model='newBook' className={`${styles.form}`} onSubmit={onSubmit} ref={attachNode}>
@@ -21,11 +25,9 @@ class Form extends React.Component {
           </FieldHelper>
 
           <FieldHelper name='stars'>
-            <select className='form-control' id='book_stars'>
-              {[...Array(5).keys()].map((i) =>
-                <option key={i}>{i + 1}</option>
-               )}
-            </select>
+            <div>
+              <Stars count={stars} handleClick={this.props.changeStars} />
+            </div>
           </FieldHelper>
 
           <FieldHelper name='category'>
@@ -42,8 +44,14 @@ class Form extends React.Component {
 }
 
 Form.propTypes = {
+  stars: PropTypes.number.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  attachNode: PropTypes.func.isRequired
+  attachNode: PropTypes.func.isRequired,
+  changeStars: PropTypes.func.isRequired
 }
 
-export default Form
+const mapStateToProps = (state) => ({
+  stars: state.newBook.stars
+})
+
+export default connect(mapStateToProps, { changeStars })(Form)

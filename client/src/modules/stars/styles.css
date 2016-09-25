@@ -1,5 +1,21 @@
 .stars {
   color: #FFCD51;
-  font-size: 1.5em;
   margin-left: 0.25rem;
+
+  & i {
+    font-size: 1.5em;
+    transition: all .5s ease;
+  }
+
+  & i:hover {
+    transform: scale(1.5);
+
+    &:not(:first-child) {
+      margin-left: 0.2em;
+    }
+
+    &:not(:last-child) {
+      margin-right: 0.2em;
+    }
+  }
 }

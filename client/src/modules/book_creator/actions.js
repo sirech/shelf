@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+import { actions } from 'react-redux-form'
 
 export const CREATE_BOOK_REQUESTED = 'books:book:create:requested'
 export const CREATE_BOOK_SUCCESS = 'books:book:create:success'
@@ -51,5 +52,11 @@ export function createBook (book) {
       .then(response => response.json())
       .then(data => dispatch(bookCreated(data)))
       .catch(error => dispatch(bookCreationFailed(error)))
+  }
+}
+
+export function changeStars (count) {
+  return (dispatch) => {
+    dispatch(actions.change('newBook.stars', count))
   }
 }
