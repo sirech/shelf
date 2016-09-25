@@ -10,7 +10,6 @@ const Category = ({name, books}) => (
   <div className={`${styles.category} card`}>
     <div className='card-header'>
       <h4 className='d-inline-block'>{name}</h4>
-      <span className='tag tag-warning tag-pill pull-xs-right'>{books.length}</span>
     </div>
     <ul className='list-unstyled m-b-0'>
       <CSSTransitionGroup transitionName={animate} transitionEnterTimeout={500} transitionLeaveTimeout={1} >
