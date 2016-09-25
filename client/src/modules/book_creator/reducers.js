@@ -2,6 +2,8 @@ import { register } from 'hops'
 import { formReducer, modelReducer } from 'react-redux-form'
 import { OPEN_BOOK_FORM, CLOSE_BOOK_FORM, CREATE_BOOK_SUCCESS } from './actions'
 
+export const REDUCER_FORM = 'redux-bookForm'
+
 const initialState = {
   title: '',
   year: new Date().getFullYear,
@@ -10,7 +12,7 @@ const initialState = {
 }
 
 register('newBook', modelReducer('newBook', initialState))
-register('redux-bookForm', formReducer('newBook', initialState))
+register(REDUCER_FORM, formReducer('newBook', initialState))
 
 function bookForm (state = { opened: false }, action) {
   switch (action.type) {

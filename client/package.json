@@ -31,6 +31,7 @@
     "react-bootstrap-modal": "3.0.0",
     "react-addons-update": "15.3.2",
     "redux-merge-reducers": "0.0.2",
-    "normalizr": "2.2.1"
+    "normalizr": "2.2.1",
+    "validator": "5.7.0"
   }
 }

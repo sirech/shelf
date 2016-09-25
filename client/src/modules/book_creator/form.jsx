@@ -1,28 +1,19 @@
 import React, { PropTypes } from 'react'
-import ReactDOM from 'react-dom'
 import { Form as FormBuilder } from 'react-redux-form'
 
 import FieldHelper from './field_helper'
+import Input from './input'
 
 import styles from './styles.css'
 
 class Form extends React.Component {
-  componentDidMount () {
-    ReactDOM.findDOMNode(this.refs.titleInput).focus()
-  }
-
   render () {
     const { onSubmit, attachNode } = this.props
     return (
       <div className='container' >
         <FormBuilder model='newBook' className={`${styles.form}`} onSubmit={onSubmit} ref={attachNode}>
-          <FieldHelper name='title'>
-            <input type='text' id='book_title' className='form-control' placeholder='Catch-22' ref='titleInput' />
-          </FieldHelper>
-
-          <FieldHelper name='year'>
-            <input type='number' id='book_year' className='form-control' />
-          </FieldHelper>
+          <Input name='title' placeholder='Catch-22' references='titleInput' focus />
+          <Input name='year' type='number' />
 
           <FieldHelper name='description'>
             <textarea id='book_description' className='form-control' placeholder="That's some catch, that Catch-22" rows='3' />
