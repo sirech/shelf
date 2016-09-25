@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react'
+import CSSTransitionGroup from 'react-addons-css-transition-group'
 
 import Book from './book'
 
 import styles from './styles.css'
+import animate from './../utils/css/appear.css'
 
 const Category = ({name, books}) => (
   <div className={`${styles.category} card`}>
@@ -11,9 +13,11 @@ const Category = ({name, books}) => (
       <span className='tag tag-warning tag-pill pull-xs-right'>{books.length}</span>
     </div>
     <ul className='list-unstyled m-b-0'>
-      {books.map((book) =>
-        <Book key={book.id} {...book} />
-       )}
+      <CSSTransitionGroup transitionName={animate} transitionEnterTimeout={500} transitionLeaveTimeout={1} >
+        {books.map((book) =>
+          <Book key={book.id} {...book} />
+         )}
+      </CSSTransitionGroup>
     </ul>
   </div>
 )

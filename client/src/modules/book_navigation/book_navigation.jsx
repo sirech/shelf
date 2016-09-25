@@ -1,10 +1,13 @@
 import React, { PropTypes } from 'react'
+import CSSTransitionGroup from 'react-addons-css-transition-group'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import classNames from 'classnames'
 
 import { fetchYears } from './actions'
 import { select } from './reducers'
+
+import animate from './../utils/css/appear.css'
 
 const Item = ({year, count, activeYear}) => (
   <Link key={year} to={`/books/${year}`} className={classNames('list-group-item', 'list-group-item-action', { 'active': activeYear === year })}>
@@ -28,9 +31,11 @@ class BookNavigation extends React.Component {
     const { activeYear, result, entities } = this.props
     return (
       <div className='list-group'>
-        {result.map((year) =>
-          <Item key={year} activeYear={activeYear} {...entities.years[year]} />
-         )}
+        <CSSTransitionGroup transitionName={animate} transitionEnterTimeout={1000} transitionLeaveTimeout={1} >
+          {result.map((year) =>
+            <Item key={year} activeYear={activeYear} {...entities.years[year]} />
+           )}
+        </CSSTransitionGroup>
       </div>
     )
   }
