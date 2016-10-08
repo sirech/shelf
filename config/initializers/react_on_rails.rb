@@ -7,7 +7,7 @@ ReactOnRails.configure do |config|
   # this has to be set accordingly.
   # Defaults to "/".
   # XING usage example: "assets/jobs/bundle"
-  # config.asset_path_prefix = "/"
+  config.asset_path_prefix = ""
 
   # Webpack Devserver port
   # Defaults to "8080"
