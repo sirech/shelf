@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
-import Modal from 'react-bootstrap-modal'
+import { Modal, ModalHeader, ModalTitle, ModalClose, ModalBody, ModalFooter } from 'react-modal-bootstrap'
 
 import { createBook, openForm, closeForm } from './actions'
 import { REDUCER_FORM } from './reducers'
@@ -41,17 +41,18 @@ class BookCreator extends React.Component {
           Add Book
         </button>
 
-        <Modal show={this.props.opened} onHide={() => this.props.closeForm()} className={`${styles.modal}`}>
-          <Modal.Header closeButton>
-            <Modal.Title id='ModalHeader'>Add Book</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
+        <Modal isOpen={this.props.opened} onRequestHide={() => this.props.closeForm()} className={`${styles.modal}`}>
+          <ModalHeader>
+            <ModalClose onClick={() => this.props.closeForm()} />
+            <ModalTitle>Add Book</ModalTitle>
+          </ModalHeader>
+          <ModalBody>
             <Form attachNode={this.attachNode} onSubmit={this.handleSubmit} />
-          </Modal.Body>
-          <Modal.Footer>
+          </ModalBody>
+          <ModalFooter>
             <button className='btn btn-primary m-r-1' onClick={this.handleClick} disabled={disabled} >Create</button>
-            <Modal.Dismiss className='btn btn-secondary'>Cancel</Modal.Dismiss>
-          </Modal.Footer>
+            <button className='btn btn-default' onClick={() => this.props.closeForm()}>Cancel</button>
+          </ModalFooter>
         </Modal>
       </div>
     )

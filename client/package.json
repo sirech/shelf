@@ -28,9 +28,9 @@
     "classnames": "2.2.5",
     "hops": "1.0.0",
     "react-redux-form": "0.14.6",
-    "react-bootstrap-modal": "3.0.0",
     "react-addons-update": "15.3.2",
     "react-addons-css-transition-group": "15.3.2",
+    "react-modal-bootstrap": "1.1.0",
     "redux-merge-reducers": "0.0.2",
     "normalizr": "2.2.1",
     "validator": "5.7.0"
