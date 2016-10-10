@@ -14,6 +14,7 @@ namespace :react_on_rails do
         puts "ReactOnRails - Copy Webpack assets from #{dist_dir} to #{public_dir}"
         FileUtils.mkdir_p(public_dir) unless Dir.exist?(public_dir)
         FileUtils.cp_r("#{dist_dir}/.", public_dir)
+        FileUtils.rm("#{public_dir}/index.html") # Avoid conflicts serving the wrong file
       end
     end
   end
