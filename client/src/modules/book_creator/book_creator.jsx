@@ -15,12 +15,12 @@ class BookCreator extends React.Component {
   constructor () {
     super()
 
-    this.attachNode = this.attachNode.bind(this)
+    this.bindForm = this.bindForm.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  attachNode (node) {
+  bindForm (node) {
     this._form = ReactDOM.findDOMNode(node)
   }
 
@@ -47,7 +47,7 @@ class BookCreator extends React.Component {
             <ModalTitle>Add Book</ModalTitle>
           </ModalHeader>
           <ModalBody>
-            <Form attachNode={this.attachNode} onSubmit={this.handleSubmit} />
+            <Form bindForm={this.bindForm} onSubmit={this.handleSubmit} />
           </ModalBody>
           <ModalFooter>
             <button className='btn btn-primary m-r-1' onClick={this.handleClick} disabled={disabled} >Create</button>

@@ -12,10 +12,10 @@ import styles from './styles.css'
 
 class Form extends React.Component {
   render () {
-    const { stars, onSubmit, attachNode } = this.props
+    const { stars, onSubmit, bindForm } = this.props
     return (
       <div className='container' >
-        <FormBuilder model='newBook' className={`${styles.form}`} onSubmit={onSubmit} ref={attachNode}>
+        <FormBuilder model='newBook' className={`${styles.form}`} onSubmit={onSubmit} ref={bindForm}>
           <Input name='title' placeholder='Catch-22' references='titleInput' focus />
           <Input name='year' type='number' />
 
@@ -46,7 +46,7 @@ class Form extends React.Component {
 Form.propTypes = {
   stars: PropTypes.number.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  attachNode: PropTypes.func.isRequired,
+  bindForm: PropTypes.func.isRequired,
   changeStars: PropTypes.func.isRequired
 }
 
