@@ -8,7 +8,7 @@
     "hot": "REACT_ON_RAILS_ENV=hot webpack-dev-server --hot --config node_modules/hops/etc/webpack.hot.js",
     "watch": "webpack-dev-server --hot --config node_modules/hops/etc/webpack.watch.js",
     "build": "webpack --progress --config webpack.build.js",
-    "test": "mocha-webpack --require source-map-support/register --reporter hops/reporter --webpack-config node_modules/hops/etc/webpack.test.js \"src/**/*.test.js*\""
+    "test": "jest"
   },
   "author": "Mario Fernandez",
   "hops": {
@@ -34,5 +34,12 @@
     "redux-merge-reducers": "0.0.2",
     "normalizr": "2.2.1",
     "validator": "5.7.0"
+  },
+  "devDependencies": {
+    "babel-jest": "*",
+    "babel-polyfill": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*",
+    "jest": "16.0.1"
   }
 }
