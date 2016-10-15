@@ -40,6 +40,8 @@
     "babel-polyfill": "*",
     "babel-preset-es2015": "*",
     "babel-preset-react": "*",
-    "jest": "16.0.1"
+    "jest": "16.0.1",
+    "nock": "*",
+    "redux-mock-store": "*"
   }
 }

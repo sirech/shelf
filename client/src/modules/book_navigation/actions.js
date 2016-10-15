@@ -1,6 +1,8 @@
 import fetch from 'isomorphic-fetch'
 import { normalize, Schema, arrayOf } from 'normalizr'
 
+import prepareUrl from './../utils/url'
+
 export const REQUEST_YEARS = 'years:request'
 export const RECEIVE_YEARS = 'years:receive'
 
@@ -22,7 +24,7 @@ export function fetchYears () {
   return (dispatch) => {
     dispatch(requestYears())
 
-    const url = '/rest/books/years'
+    const url = prepareUrl('/rest/books/years')
     const headers = { 'Accept': 'application/json' }
 
     return fetch(url, { headers })

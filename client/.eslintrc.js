@@ -29,6 +29,7 @@ module.exports = {
     "react"
   ],
   "globals": {
-    "INITIAL_DATA": true
+    "INITIAL_DATA": true,
+    "expect": true
   }
 };
