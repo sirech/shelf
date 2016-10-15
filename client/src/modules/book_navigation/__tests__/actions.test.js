@@ -1,22 +1,17 @@
 import { mockStore } from './../../utils/test/mock_store'
 import nock from 'nock'
 
+import { years, normalizedYears } from './../fixtures/years'
 import { fetchYears } from './../actions'
 
 describe('actions', () => {
   let store
-  const data = [{ 'year': 2016, count: 3 }, { 'year': 2015, count: 1 }]
-  const normalizedData = {
-    'entities': {
-      'years': { '2015': { 'count': 1, 'year': 2015 },
-                 '2016': { 'count': 3, 'year': 2016 }}},
-    'result': [2015, 2016] }
 
   describe('fetchYears', () => {
     beforeEach(() => {
       nock('http://localhost')
         .get('/rest/books/years')
-        .reply(200, data)
+        .reply(200, years)
 
       store = mockStore({ years: [] })
     })
@@ -28,7 +23,7 @@ describe('actions', () => {
     it('should dispatch the correct actions', () => {
       const expectedActions = [
         { type: 'years:request' },
-        { type: 'years:receive', years: normalizedData }
+        { type: 'years:receive', years: normalizedYears }
       ]
 
       return store.dispatch(fetchYears())

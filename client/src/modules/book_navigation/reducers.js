@@ -39,7 +39,7 @@ function updateCounter (state, year) {
   return update(state, { entities: { years: { [year]: { count: { $apply: (n) => n + 1 } } } } })
 }
 
-function years (state = {}, action) {
+export function years (state = {}, action) {
   switch (action.type) {
   case RECEIVE_YEARS:
     return { ...state, ...action.years }
