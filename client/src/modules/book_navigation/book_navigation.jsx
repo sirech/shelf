@@ -1,26 +1,12 @@
 import React, { PropTypes } from 'react'
 import CSSTransitionGroup from 'react-addons-css-transition-group'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
-import classNames from 'classnames'
 
 import { fetchYears } from './actions'
 import { select } from './reducers'
 
+import Item from './item'
 import animate from './../utils/css/appear.css'
-
-const Item = ({year, count, activeYear}) => (
-  <Link key={year} to={`/books/${year}`} className={classNames('list-group-item', 'list-group-item-action', { 'active': activeYear === year })}>
-    <span>{year}</span>
-    <span className='tag tag-warning tag-pill pull-xs-right'>{count}</span>
-  </Link>
-)
-
-Item.propTypes = {
-  year: PropTypes.number.isRequired,
-  count: PropTypes.number.isRequired,
-  activeYear: PropTypes.number.isRequired
-}
 
 class BookNavigation extends React.Component {
   componentDidMount () {
@@ -43,9 +29,9 @@ class BookNavigation extends React.Component {
 
 BookNavigation.propTypes = {
   activeYear: PropTypes.number.isRequired,
-  fetchYears: PropTypes.func.isRequired,
   result: PropTypes.array.isRequired,
-  entities: PropTypes.object.isRequired
+  entities: PropTypes.object.isRequired,
+  fetchYears: PropTypes.func.isRequired
 }
 
 BookNavigation.defaultProps = {
