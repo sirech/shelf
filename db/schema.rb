@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917163237) do
+ActiveRecord::Schema.define(version: 20161015214955) do
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                                 null: false
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 20160917163237) do
     t.integer  "year",                                  null: false
     t.integer  "stars",                     default: 1
     t.integer  "category",                  default: 0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  create_table "games", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title",                                 null: false
+    t.text     "description", limit: 65535
+    t.integer  "year",                                  null: false
+    t.integer  "stars",                     default: 1
+    t.integer  "platform",                  default: 0
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
   end
