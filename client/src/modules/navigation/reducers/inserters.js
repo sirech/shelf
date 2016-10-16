@@ -1,9 +1,4 @@
 import update from 'react-addons-update'
-import { register } from 'hops'
-
-import { RECEIVE_YEARS } from './actions'
-import { CREATE_BOOK_SUCCESS } from '../book_creator/actions'
-import { trackYearReducer } from '../utils/years'
 
 function insertEntity (state, entityName, newEntity, key = 'id') {
   return update(state, {
@@ -30,7 +25,7 @@ function insertResult (state, result, comesAfterNewElement) {
   })
 }
 
-function updateCounter (state, year) {
+export function updateCounter (state, year) {
   if (!state.entities.years[year]) {
     state = insertEntity(state, 'years', { year: year, count: 0 }, 'year')
     state = insertResult(state, year, (e) => parseInt(e) < parseInt(year))
@@ -38,16 +33,3 @@ function updateCounter (state, year) {
 
   return update(state, { entities: { years: { [year]: { count: { $apply: (n) => n + 1 } } } } })
 }
-
-export function years (state = {}, action) {
-  switch (action.type) {
-  case RECEIVE_YEARS:
-    return { ...state, ...action.years }
-  case CREATE_BOOK_SUCCESS:
-    return updateCounter(state, action.response.year)
-  default:
-    return state
-  }
-}
-
-export const select = register('years', trackYearReducer.merge(years))

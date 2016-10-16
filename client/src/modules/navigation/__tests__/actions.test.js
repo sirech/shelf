@@ -22,11 +22,11 @@ describe('actions', () => {
 
     it('should dispatch the correct actions', () => {
       const expectedActions = [
-        { type: 'years:request' },
-        { type: 'years:receive', years: normalizedYears }
+        { type: 'books:years:request' },
+        { type: 'books:years:receive', years: normalizedYears }
       ]
 
-      return store.dispatch(fetchYears())
+      return store.dispatch(fetchYears('books'))
         .then(() => {
           expect(store.getActions()).toEqual(expectedActions)
         })

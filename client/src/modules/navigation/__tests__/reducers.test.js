@@ -1,16 +1,18 @@
-import { years } from './../reducers'
+import { navigationReducer } from './../reducers'
 import { normalizedYears } from './../fixtures/years'
-import { RECEIVE_YEARS } from '../actions'
+import { actionType } from '../actions'
 import { CREATE_BOOK_SUCCESS } from '../../book_creator/actions'
 
-describe('book_navigation reducers', () => {
+const years = navigationReducer('books', CREATE_BOOK_SUCCESS)
+
+describe('navigation reducers', () => {
   it('returns the initial state', () => {
     expect(years(undefined, {})).toEqual({})
   })
 
   it('handles RECEIVE_YEARS', () => {
     expect(years({}, {
-      type: RECEIVE_YEARS,
+      type: actionType('books', 'receive'),
       years: normalizedYears
     })).toEqual(normalizedYears)
   })

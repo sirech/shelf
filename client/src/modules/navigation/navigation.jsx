@@ -3,12 +3,12 @@ import CSSTransitionGroup from 'react-addons-css-transition-group'
 import { connect } from 'react-redux'
 
 import { fetchYears } from './actions'
-import { select } from './reducers'
+import registerNavigationReducer from './reducers/index'
 
 import Item from './item'
 import animate from './../utils/css/appear.css'
 
-class BookNavigation extends React.Component {
+class Navigation extends React.Component {
   componentDidMount () {
     this.props.fetchYears()
   }
@@ -27,16 +27,22 @@ class BookNavigation extends React.Component {
   }
 }
 
-BookNavigation.propTypes = {
+Navigation.propTypes = {
   activeYear: PropTypes.number.isRequired,
   result: PropTypes.array.isRequired,
   entities: PropTypes.object.isRequired,
   fetchYears: PropTypes.func.isRequired
 }
 
-BookNavigation.defaultProps = {
+Navigation.defaultProps = {
   result: [],
   entities: {}
 }
 
-export default connect(select, { fetchYears })(BookNavigation)
+const connectNavigation = (entity, createMessage) => {
+  const fetchFunction = () => fetchYears(entity)
+  const select = registerNavigationReducer(entity, createMessage)
+  return connect(select, { fetchYears: fetchFunction })(Navigation)
+}
+
+export default connectNavigation

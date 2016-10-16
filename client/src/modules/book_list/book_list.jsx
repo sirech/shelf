@@ -5,8 +5,11 @@ import { fetchBooks } from './actions'
 import { select } from './reducers'
 
 import BookCreator from './../book_creator'
-import BookNavigation from './../book_navigation'
+import { CREATE_BOOK_SUCCESS } from './../book_creator/actions'
+import connectNavigation from './../navigation'
 import Category from './category'
+
+const Navigation = connectNavigation('books', CREATE_BOOK_SUCCESS)
 
 class BookList extends React.Component {
   componentDidMount () {
@@ -55,7 +58,7 @@ class BookList extends React.Component {
           {this.renderCategoryGroups(this.groupByCategory(books))}
         </div>
         <div className='col-sm-4 col-md-3 col-lg-2'>
-          <BookNavigation />
+          <Navigation />
         </div>
       </div>
     )

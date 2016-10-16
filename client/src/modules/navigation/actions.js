@@ -3,15 +3,14 @@ import { normalize, Schema, arrayOf } from 'normalizr'
 
 import prepareUrl from './../utils/url'
 
-export const REQUEST_YEARS = 'years:request'
-export const RECEIVE_YEARS = 'years:receive'
+export const actionType = (entity, type) => `${entity}:years:${type}`
 
-const requestYears = () => ({
-  type: REQUEST_YEARS
+const requestYears = (entity) => ({
+  type: actionType(entity, 'request')
 })
 
-const receiveYears = (years) => ({
-  type: RECEIVE_YEARS,
+const receiveYears = (entity, years) => ({
+  type: actionType(entity, 'receive'),
   years: years
 })
 
@@ -20,16 +19,16 @@ const format = (data) => {
   return normalize(data.reverse(), arrayOf(schema))
 }
 
-export function fetchYears () {
+export function fetchYears (entity) {
   return (dispatch) => {
-    dispatch(requestYears())
+    dispatch(requestYears(entity))
 
-    const url = prepareUrl('/rest/books/years')
+    const url = prepareUrl(`/rest/${entity}/years`)
     const headers = { 'Accept': 'application/json' }
 
     return fetch(url, { headers })
       .then((response) => response.json())
       .then((data) => format(data))
-      .then((data) => dispatch(receiveYears(data)))
+      .then((data) => dispatch(receiveYears(entity, data)))
   }
 }
