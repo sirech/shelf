@@ -1,13 +1,13 @@
 module Rest
-  class BooksController < ItemsController
+  class GamesController < ItemsController
     protected
 
     def model
-      :book
+      :game
     end
 
     def extra_params
-      %i(category)
+      %i(platform)
     end
   end
 end

@@ -7,6 +7,12 @@ Rails.application.routes.draw do
         get 'years'
       end
     end
+
+    resources :games, only: %i(index create) do
+      collection do
+        get 'years'
+      end
+    end
   end
 
   get '/*react', to: 'clients#index'
