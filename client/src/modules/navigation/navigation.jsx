@@ -10,16 +10,16 @@ import animate from './../utils/css/appear.css'
 
 class Navigation extends React.Component {
   componentDidMount () {
-    this.props.fetchYears()
+    this.props.fetchYears(this.props.entity)
   }
 
   render () {
-    const { activeYear, result, entities } = this.props
+    const { entity, activeYear, result, entities } = this.props
     return (
       <div className='list-group'>
         <CSSTransitionGroup transitionName={animate} transitionEnterTimeout={1000} transitionLeaveTimeout={1} >
           {result.map((year) =>
-            <Item key={year} activeYear={activeYear} {...entities.years[year]} />
+            <Item key={year} entity={entity} activeYear={activeYear} {...entities.years[year]} />
            )}
         </CSSTransitionGroup>
       </div>
@@ -28,6 +28,7 @@ class Navigation extends React.Component {
 }
 
 Navigation.propTypes = {
+  entity: PropTypes.string.isRequired,
   activeYear: PropTypes.number.isRequired,
   result: PropTypes.array.isRequired,
   entities: PropTypes.object.isRequired,
@@ -40,9 +41,8 @@ Navigation.defaultProps = {
 }
 
 const connectNavigation = (entity, createMessage) => {
-  const fetchFunction = () => fetchYears(entity)
   const select = registerNavigationReducer(entity, createMessage)
-  return connect(select, { fetchYears: fetchFunction })(Navigation)
+  return connect(select, { fetchYears })(Navigation)
 }
 
 export default connectNavigation

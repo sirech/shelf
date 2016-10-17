@@ -58,7 +58,7 @@ class BookList extends React.Component {
           {this.renderCategoryGroups(this.groupByCategory(books))}
         </div>
         <div className='col-sm-4 col-md-3 col-lg-2'>
-          <Navigation />
+          <Navigation entity={'books'} />
         </div>
       </div>
     )

@@ -1,0 +1,26 @@
+exports[`components Game renders correctly 1`] = `
+<li
+  className="undefined">
+  <h5>
+    Civ VI
+  </h5>
+  <span
+    className="undefined">
+    <i
+      className="fa fa-star"
+      onClick={[Function]} />
+    <i
+      className="fa fa-star"
+      onClick={[Function]} />
+    <i
+      className="fa fa-star"
+      onClick={[Function]} />
+    <i
+      className="fa fa-star"
+      onClick={[Function]} />
+    <i
+      className="fa fa-star"
+      onClick={[Function]} />
+  </span>
+</li>
+`;

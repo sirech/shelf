@@ -4,6 +4,7 @@ import { Route, Redirect } from 'react-router'
 import styles from './styles.css'
 
 import BookList from './modules/book_list'
+import GameList from './modules/game_list'
 import Header from './modules/header'
 
 class Shell extends React.Component {
@@ -29,5 +30,7 @@ export default (
   <Route path='/' component={Shell}>
     <Route path='/books/:year' component={BookList} />
     <Redirect from='/books' to={`/books/${year}`} />
+    <Route path='/games/:year' component={GameList} />
+    <Redirect from='/games' to={`/games/${year}`} />
   </Route>
 )

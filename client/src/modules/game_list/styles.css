@@ -1,0 +1,18 @@
+:root {
+  --border-color: #ECEEEF;
+}
+
+.game {
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  padding: 0.75rem;
+
+  &:nth-of-type(even) {
+    background-color: rgba(85, 211, 255, 0.05)
+  }
+}
+
+.game h5 {
+  flex-grow: 1;
+  margin: 0;
+}
