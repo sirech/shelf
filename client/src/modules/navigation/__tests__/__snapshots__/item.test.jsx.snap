@@ -1,0 +1,29 @@
+exports[`components Item renders 1`] = `
+<a
+  className="list-group-item list-group-item-action"
+  onClick={[Function]}
+  style={Object {}}>
+  <span>
+    2016
+  </span>
+  <span
+    className="tag tag-warning tag-pill pull-xs-right">
+    2
+  </span>
+</a>
+`;
+
+exports[`components Item renders for the active item 1`] = `
+<a
+  className="list-group-item list-group-item-action active"
+  onClick={[Function]}
+  style={Object {}}>
+  <span>
+    2016
+  </span>
+  <span
+    className="tag tag-warning tag-pill pull-xs-right">
+    2
+  </span>
+</a>
+`;

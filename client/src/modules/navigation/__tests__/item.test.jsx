@@ -1,5 +1,6 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import renderer from 'react-test-renderer'
+
 import Item from '../item'
 
 const item = (activeYear = 2015) => {
@@ -9,27 +10,17 @@ const item = (activeYear = 2015) => {
     activeYear: activeYear
   }
 
-  return shallow(<Item {...props} />)
+  return renderer.create(<Item {...props} />)
 }
 
 describe('components', () => {
   describe('Item', () => {
     it('renders', () => {
-      expect(item().length).toEqual(1)
+      expect(item().toJSON()).toMatchSnapshot()
     })
 
-    it('links to the correct page', () => {
-      expect(item().find('Link').props().to).toEqual('/books/2016')
-    })
-
-    describe('active', () => {
-      it('is false if the item is not active', () => {
-        expect(item().hasClass('active')).toBeFalsy()
-      })
-
-      it('is true if the item is active', () => {
-        expect(item(2016).hasClass('active')).toBeTruthy()
-      })
+    it('renders for the active item', () => {
+      expect(item(2016).toJSON()).toMatchSnapshot()
     })
   })
 })

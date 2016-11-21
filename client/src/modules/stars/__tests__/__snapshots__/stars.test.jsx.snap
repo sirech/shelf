@@ -1,0 +1,20 @@
+exports[`components Stars renders correctly 1`] = `
+<span
+  className="undefined">
+  <i
+    className="fa fa-star"
+    onClick={[Function]} />
+  <i
+    className="fa fa-star"
+    onClick={[Function]} />
+  <i
+    className="fa fa-star"
+    onClick={[Function]} />
+  <i
+    className="fa fa-star-o"
+    onClick={[Function]} />
+  <i
+    className="fa fa-star-o"
+    onClick={[Function]} />
+</span>
+`;
