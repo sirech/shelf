@@ -42,6 +42,7 @@
     "babel-preset-react": "*",
     "jest": "16.0.1",
     "nock": "*",
+    "react-test-renderer": "*",
     "redux-mock-store": "*"
   }
 }
