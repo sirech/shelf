@@ -24,6 +24,21 @@
   "stylelint": {
     "extends": "./node_modules/hops/etc/.stylelintrc"
   },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/config/"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "packages"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/config/jest/FileStub.js",
+      "^.+\\.(css|less)$": "<rootDir>/config/jest/CSSStub.js"
+    },
+    "testEnvironment": "node"
+  },
   "dependencies": {
     "classnames": "2.2.5",
     "hops": "1.0.0",
