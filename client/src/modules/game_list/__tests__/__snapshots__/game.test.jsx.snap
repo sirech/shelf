@@ -1,6 +1,6 @@
 exports[`components Game renders correctly 1`] = `
 <li
-  className="undefined">
+  className="undefined list-group-item">
   <h5>
     Civ VI
   </h5>

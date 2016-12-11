@@ -9,7 +9,7 @@ class Game extends React.Component {
     const { title, stars } = this.props
 
     return (
-      <li className={`${styles.game}`}>
+      <li className={`${styles.game} list-group-item`}>
         <h5>{title}</h5>
         <Stars count={stars} />
       </li>
