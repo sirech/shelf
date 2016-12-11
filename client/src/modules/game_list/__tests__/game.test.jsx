@@ -6,7 +6,7 @@ import Game from '../game'
 describe('components', () => {
   describe('Game', () => {
     it('renders correctly', () => {
-      const game = renderer.create(<Game title='Civ VI' stars={5} />)
+      const game = renderer.create(<Game title='Civ VI' platform='pc' stars={5} />)
       expect(game.toJSON()).toMatchSnapshot()
     })
   })
