@@ -6,8 +6,8 @@ import { fetchGames } from './actions'
 import { select } from './reducers'
 
 import Game from './game'
-import { CREATE_GAME_SUCCESS } from './../game_creator/actions'
-import connectNavigation from './../navigation'
+import { CREATE_GAME_SUCCESS } from '../game_creator/actions'
+import connectNavigation from '../navigation'
 
 import animate from './../utils/css/appear.css'
 

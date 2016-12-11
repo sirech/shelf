@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 import { fetchBooks } from './actions'
 import { select } from './reducers'
 
-import BookCreator from './../book_creator'
-import { CREATE_BOOK_SUCCESS } from './../book_creator/actions'
-import connectNavigation from './../navigation'
+import BookCreator from '../book_creator'
+import { CREATE_BOOK_SUCCESS } from '../book_creator/actions'
+import connectNavigation from '../navigation'
 import Category from './category'
 
 const Navigation = connectNavigation('books', CREATE_BOOK_SUCCESS)
