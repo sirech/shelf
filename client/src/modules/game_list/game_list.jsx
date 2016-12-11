@@ -5,6 +5,7 @@ import CSSTransitionGroup from 'react-addons-css-transition-group'
 import { fetchGames } from './actions'
 import { select } from './reducers'
 
+import GameCreator from '../game_creator'
 import Game from './game'
 import { CREATE_GAME_SUCCESS } from '../game_creator/actions'
 import connectNavigation from '../navigation'
@@ -33,6 +34,7 @@ class GameList extends React.Component {
     return (
       <div className='row' >
         <div className='col-sm-8 col-md-9 col-lg-10'>
+          <GameCreator />
           <ul className='list-group list-unstyled m-b-0'>
             <CSSTransitionGroup transitionName={animate} transitionEnterTimeout={500} transitionLeaveTimeout={1} >
               {games.map((game) =>
