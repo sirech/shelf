@@ -1,6 +1,7 @@
 PreCommit:
   EsLint:
     enabled: true
+    required_executable: './client/node_modules/.bin/eslint'
     include:
       - '**/*.js'
       - '**/*.jsx'
