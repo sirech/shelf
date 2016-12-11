@@ -4,9 +4,8 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "start": "[ \"$NODE_ENV\" != \"production\" ] && npm run watch || npm run build",
-    "hot": "REACT_ON_RAILS_ENV=hot webpack-dev-server --hot --config node_modules/hops/etc/webpack.hot.js",
-    "watch": "webpack-dev-server --hot --config node_modules/hops/etc/webpack.watch.js",
+    "start": "[ \"$NODE_ENV\" != \"production\" ] && npm run hot || npm run build",
+    "hot": "REACT_ON_RAILS_ENV=hot webpack-dev-server --hot --config webpack.hot.js",
     "build": "webpack --progress --config webpack.build.js",
     "test": "jest"
   },
