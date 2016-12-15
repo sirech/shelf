@@ -25,7 +25,7 @@ module ReactOnRails
 
     def template_url(name)
       url = "http://localhost:#{webpack_devserver_port}"
-      url += "/#{prefix}" unless prefix == "/"
+      url += "/#{prefix}" unless prefix == "" || prefix == "/"
       url += "/#{name}" unless name == "/"
       url
     end
