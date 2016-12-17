@@ -40,8 +40,8 @@
   },
   "dependencies": {
     "classnames": "2.2.5",
-    "hops": "1.0.0",
-    "react-redux-form": "0.14.6",
+    "hops": "2.1.0",
+    "react-redux-form": "1.4.3",
     "react-addons-update": "15.3.2",
     "react-addons-css-transition-group": "15.3.2",
     "react-modal-bootstrap": "1.1.0",
