@@ -6,7 +6,7 @@
   "scripts": {
     "start": "[ \"$NODE_ENV\" != \"production\" ] && npm run hot || npm run build",
     "hot": "hops serve",
-    "build": "webpack --progress --config webpack.build.js",
+    "build": "hops build",
     "test": "jest"
   },
   "author": "Mario Fernandez",
