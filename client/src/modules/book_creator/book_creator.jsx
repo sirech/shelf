@@ -69,7 +69,7 @@ BookCreator.propTypes = {
 
 const mapStateToProps = (state) => ({
   opened: state.bookForm.opened,
-  disabled: !state[REDUCER_FORM].valid || state[REDUCER_FORM].submitted
+  disabled: !state[REDUCER_FORM].$form.valid || state[REDUCER_FORM].$form.submitted
 })
 
 export default connect(mapStateToProps, { createBook, openForm, closeForm })(BookCreator)

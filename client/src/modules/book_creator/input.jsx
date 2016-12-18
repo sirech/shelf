@@ -77,7 +77,7 @@ Input.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const field = state[REDUCER_FORM].fields[ownProps.name]
+  const field = state[REDUCER_FORM][ownProps.name]
 
   return {
     hasError: !field.valid && field.touched
