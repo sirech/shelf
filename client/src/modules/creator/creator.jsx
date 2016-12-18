@@ -12,7 +12,7 @@ import registerCreatorReducer from './reducers'
 
 import styles from './styles.css'
 
-const creatorFactory = ({entity, Form, headline}) => {
+export const creatorFactory = ({entity, Form, headline}) => {
   class Creator extends React.Component {
     constructor () {
       super()
