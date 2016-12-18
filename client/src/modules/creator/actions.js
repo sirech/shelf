@@ -4,7 +4,7 @@ import { actions } from 'react-redux-form'
 import prepareUrl from '../utils/url'
 import { modelName } from './form_utils'
 
-const actionType = (entity, type) => `creator:${entity}:${type}`
+export const actionType = (entity, type) => `creator:${entity}:${type}`
 
 const created = (entity, response) => ({
   type: actionType(entity, 'success'),
