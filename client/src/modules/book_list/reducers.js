@@ -1,7 +1,7 @@
 import update from 'react-addons-update'
 import { register } from 'hops'
 import { RECEIVE_BOOKS } from './actions'
-import { CREATE_BOOK_SUCCESS } from '../book_creator/actions'
+import { actionType } from '../creator/actions'
 
 import { trackYearReducer } from '../utils/years'
 
@@ -17,7 +17,7 @@ function books (state = {}, action) {
   switch (action.type) {
   case RECEIVE_BOOKS:
     return { ...state, books: action.books }
-  case CREATE_BOOK_SUCCESS:
+  case actionType('books', 'success'):
     return { ...state, books: addBook(state.books, state.activeYear, action.response) }
   default:
     return state

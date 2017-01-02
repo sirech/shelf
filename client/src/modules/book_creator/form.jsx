@@ -2,20 +2,27 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Form as FormBuilder } from 'react-redux-form'
 
-import FieldHelper from './field_helper'
-import Input from './input'
 import Stars from './../stars'
 
-import { changeStars } from './actions'
+import { modelName } from '../creator/form_utils'
+import { createChangeStars } from '../creator/actions'
+import createInput from '../input'
+import createFieldHelper from '../field_helper'
+import validations from './validations'
+const changeStars = createChangeStars('books')
 
 import styles from './styles.css'
+
+const model = modelName('books')
+const Input = createInput('books', validations)
+const FieldHelper = createFieldHelper('books')
 
 class Form extends React.Component {
   render () {
     const { stars, onSubmit, bindForm } = this.props
     return (
       <div className='container' >
-        <FormBuilder model='newBook' className={`${styles.form}`} onSubmit={onSubmit} ref={bindForm}>
+        <FormBuilder model={model} className={`${styles.form}`} onSubmit={onSubmit} ref={bindForm}>
           <Input name='title' placeholder='Catch-22' references='titleInput' focus />
           <Input name='year' type='number' />
 
@@ -51,7 +58,7 @@ Form.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  stars: state.newBook.stars
+  stars: state[modelName('books')].stars
 })
 
 export default connect(mapStateToProps, { changeStars })(Form)

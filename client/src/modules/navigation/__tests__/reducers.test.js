@@ -1,9 +1,8 @@
 import { navigationReducer } from './../reducers'
 import { normalizedYears } from './../fixtures/years'
 import { actionType } from '../actions'
-import { CREATE_BOOK_SUCCESS } from '../../book_creator/actions'
 
-const years = navigationReducer('books', CREATE_BOOK_SUCCESS)
+const years = navigationReducer('books', actionType('books', 'success'))
 
 describe('navigation reducers', () => {
   it('returns the initial state', () => {
@@ -17,9 +16,9 @@ describe('navigation reducers', () => {
     })).toEqual(normalizedYears)
   })
 
-  describe('CREATE_BOOK_SUCCESS', () => {
+  describe('handles CREATION_BOOK_SUCCESS', () => {
     const action = {
-      type: CREATE_BOOK_SUCCESS,
+      type: actionType('books', 'success'),
       response: { year: 2016 }
     }
 

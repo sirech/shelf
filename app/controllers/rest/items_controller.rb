@@ -38,7 +38,7 @@ module Rest
     private
 
     def item_params
-      params.required(model).permit([:title, :year, :description, :stars] + extra_params)
+      params.required(:item).permit([:title, :year, :description, :stars] + extra_params)
     end
 
     def model_class

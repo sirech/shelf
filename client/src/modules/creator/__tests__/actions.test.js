@@ -2,7 +2,9 @@ import { mockStore } from './../../utils/test/mock_store'
 import nock from 'nock'
 
 import { games } from '../../game_list/fixtures/games'
-import { actionType, create, changeStars } from '../actions'
+import { actionType, create, createChangeStars } from '../actions'
+
+const changeStars = createChangeStars('games')
 
 describe('actions', () => {
   let store
@@ -47,7 +49,7 @@ describe('actions', () => {
     it('dispatchs the correct action', () => {
       const expectedActions = [{ type: 'rrf/change', model: 'new-games.stars', value: 3, silent: false, multi: false }]
 
-      store.dispatch(changeStars('games', 3))
+      store.dispatch(changeStars(3))
       expect(store.getActions()).toEqual(expectedActions)
     })
   })

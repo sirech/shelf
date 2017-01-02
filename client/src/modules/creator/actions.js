@@ -54,8 +54,10 @@ function resetForm (entity) {
   }
 }
 
-export function changeStars (entity, count) {
-  return (dispatch) => {
-    dispatch(actions.change(modelName(entity, 'stars'), count))
+export function createChangeStars (entity) {
+  return (count) => {
+    return (dispatch) => {
+      dispatch(actions.change(modelName(entity, 'stars'), count))
+    }
   }
 }
