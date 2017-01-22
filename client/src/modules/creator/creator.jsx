@@ -45,8 +45,8 @@ export const creatorFactory = ({entity, Form, headline}) => {
 
           <Modal isOpen={this.props.opened} onRequestHide={() => this.props.closeForm(entity)} className={`${styles.modal}`}>
             <ModalHeader>
-              <ModalClose onClick={() => this.props.closeForm(entity)} />
               <ModalTitle>{headline}</ModalTitle>
+              <ModalClose onClick={() => this.props.closeForm(entity)} />
             </ModalHeader>
             <ModalBody>
               <Form bindForm={this.bindForm} onSubmit={this.handleSubmit} />

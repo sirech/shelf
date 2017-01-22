@@ -5,7 +5,7 @@ import classNames from 'classnames'
 const Item = ({year, count, activeYear, entity}) => (
   <Link key={year} to={`/${entity}/${year}`} className={classNames('list-group-item', 'list-group-item-action', { 'active': activeYear === year })}>
     <span>{year}</span>
-    <span className='tag tag-warning tag-pill pull-xs-right'>{count}</span>
+    <span className='badge badge-warning badge-pill ml-auto'>{count}</span>
   </Link>
 )
 

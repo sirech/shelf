@@ -1,37 +1,40 @@
 exports[`components Header renders correctly 1`] = `
 <header>
   <nav
-    className="navbar navbar-fixed-top navbar-dark bg-inverse">
-    <ul
-      className="nav navbar-nav">
-      <li
-        className="navbar-item">
-        <a
-          className="navbar-brand"
-          onClick={[Function]}
-          style={Object {}}>
-          Shelf
-        </a>
-      </li>
-      <li
-        className="nav-item">
-        <a
-          className="nav-link"
-          onClick={[Function]}
-          style={Object {}}>
-          Books
-        </a>
-      </li>
-      <li
-        className="nav-item">
-        <a
-          className="nav-link"
-          onClick={[Function]}
-          style={Object {}}>
-          Games
-        </a>
-      </li>
-    </ul>
+    className="navbar navbar-fixed-top navbar-inverse bg-inverse navbar-toggleable-md">
+    <div
+      className="navbar-collapse">
+      <ul
+        className="navbar-nav mr-auto">
+        <li
+          className="navbar-item">
+          <a
+            className="navbar-brand"
+            onClick={[Function]}
+            style={Object {}}>
+            Shelf
+          </a>
+        </li>
+        <li
+          className="nav-item ml-2">
+          <a
+            className="nav-link"
+            onClick={[Function]}
+            style={Object {}}>
+            Books
+          </a>
+        </li>
+        <li
+          className="nav-item ml-2">
+          <a
+            className="nav-link"
+            onClick={[Function]}
+            style={Object {}}>
+            Games
+          </a>
+        </li>
+      </ul>
+    </div>
   </nav>
 </header>
 `;

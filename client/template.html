@@ -21,7 +21,7 @@
     <% if (process.env.NODE_ENV === 'production') { %>
       <%- js.map((path) => '<' + `%= javascript_include_tag '${path}', :defer => true %` + '>').join('\n      ')%>
     <% } else { %>
-      <%-js.map((path) => `<script src="http://localhost:8080/${path}" defer></script>`).join('\n      ')%>
+      <%-js.map((path) => `<script src="${path}" defer></script>`).join('\n      ')%>
     <% } %>
   </body>
 </html>

@@ -11,7 +11,7 @@ const Category = ({name, books}) => (
     <div className='card-header'>
       <h4 className='d-inline-block'>{name}</h4>
     </div>
-    <ul className='list-unstyled m-b-0'>
+    <ul className='list-unstyled mb-0'>
       <CSSTransitionGroup transitionName={animate} transitionEnterTimeout={500} transitionLeaveTimeout={1} >
         {books.map((book) =>
           <Book key={book.id} {...book} />
