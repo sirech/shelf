@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch'
-import { normalize, Schema, arrayOf } from 'normalizr'
+import { normalize, schema } from 'normalizr'
 
 import prepareUrl from './../utils/url'
 
@@ -15,8 +15,8 @@ const receiveYears = (entity, years) => ({
 })
 
 const format = (data) => {
-  const schema = new Schema('years', { idAttribute: 'year' })
-  return normalize(data.reverse(), arrayOf(schema))
+  const years = new schema.Entity('years', {}, { idAttribute: 'year' })
+  return normalize(data.reverse(), [ years ])
 }
 
 export function fetchYears (entity) {
