@@ -7,13 +7,13 @@ import { modelName, formName, ownReducerName } from './form_utils'
 export function creatorReducer (entity) {
   return (state = { opened: false }, action) => {
     switch (action.type) {
-    case actionType(entity, 'open'):
-      return {...state, opened: true}
-    case actionType(entity, 'close'):
-    case actionType(entity, 'success'):
-      return {...state, opened: false}
-    default:
-      return state
+      case actionType(entity, 'open'):
+        return {...state, opened: true}
+      case actionType(entity, 'close'):
+      case actionType(entity, 'success'):
+        return {...state, opened: false}
+      default:
+        return state
     }
   }
 }

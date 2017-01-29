@@ -10,12 +10,12 @@ export function navigationReducer (entity, createMessage) {
 
   return (state = {}, action) => {
     switch (action.type) {
-    case receiveMessage:
-      return { ...state, ...action.years }
-    case createMessage:
-      return updateCounter(state, action.response.year)
-    default:
-      return state
+      case receiveMessage:
+        return { ...state, ...action.years }
+      case createMessage:
+        return updateCounter(state, action.response.year)
+      default:
+        return state
     }
   }
 }

@@ -5,13 +5,13 @@ import prepareUrl from './../utils/url'
 
 export const actionType = (entity, type) => `${entity}:years:${type}`
 
-const requestYears = (entity) => ({
+const requestYears = entity => ({
   type: actionType(entity, 'request')
 })
 
 const receiveYears = (entity, years) => ({
   type: actionType(entity, 'receive'),
-  years: years
+  years
 })
 
 const format = (data) => {
@@ -24,11 +24,11 @@ export function fetchYears (entity) {
     dispatch(requestYears(entity))
 
     const url = prepareUrl(`/rest/${entity}/years`)
-    const headers = { 'Accept': 'application/json' }
+    const headers = { Accept: 'application/json' }
 
     return fetch(url, { headers })
-      .then((response) => response.json())
-      .then((data) => format(data))
-      .then((data) => dispatch(receiveYears(entity, data)))
+      .then(response => response.json())
+      .then(data => format(data))
+      .then(data => dispatch(receiveYears(entity, data)))
   }
 }

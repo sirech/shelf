@@ -23,7 +23,7 @@ describe('actions', () => {
     it('should dispatch the correct actions', () => {
       const expectedActions = [
         { type: 'games:request' },
-        { type: 'games:receive', games: games }
+        { type: 'games:receive', games }
       ]
 
       return store.dispatch(fetchGames(2016))

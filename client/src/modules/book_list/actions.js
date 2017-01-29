@@ -7,9 +7,9 @@ const requestBooks = () => ({
   type: REQUEST_BOOKS
 })
 
-const receiveBooks = (books) => ({
+const receiveBooks = books => ({
   type: RECEIVE_BOOKS,
-  books: books
+  books
 })
 
 export function fetchBooks (year) {
@@ -17,10 +17,10 @@ export function fetchBooks (year) {
     dispatch(requestBooks())
 
     const url = `/rest/books?year=${year}`
-    const headers = { 'Accept': 'application/json' }
+    const headers = { Accept: 'application/json' }
 
     return fetch(url, { headers })
-      .then((response) => response.json())
-      .then((data) => dispatch(receiveBooks(data)))
+      .then(response => response.json())
+      .then(data => dispatch(receiveBooks(data)))
   }
 }

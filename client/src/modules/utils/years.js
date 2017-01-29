@@ -7,10 +7,10 @@ function extractYear (payload) {
 
 function reducer (state = {}, action) {
   switch (action.type) {
-  case '@@router/LOCATION_CHANGE':
-    return { ...state, activeYear: extractYear(action.payload) }
-  default:
-    return state
+    case '@@router/LOCATION_CHANGE':
+      return { ...state, activeYear: extractYear(action.payload) }
+    default:
+      return state
   }
 }
 

@@ -8,19 +8,19 @@ export const actionType = (entity, type) => `creator:${entity}:${type}`
 
 const created = (entity, response) => ({
   type: actionType(entity, 'success'),
-  response: response
+  response
 })
 
 const creationFailed = (entity, error) => ({
   type: actionType(entity, 'failed'),
-  error: error
+  error
 })
 
-export const openForm = (entity) => ({
+export const openForm = entity => ({
   type: actionType(entity, 'open')
 })
 
-export const closeForm = (entity) => ({
+export const closeForm = entity => ({
   type: actionType(entity, 'close')
 })
 
@@ -28,16 +28,16 @@ export function create (entity, item) {
   return (dispatch) => {
     const url = prepareUrl(`/rest/${entity}`)
     const headers = {
-      'Accept': 'application/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json'
     }
     const method = 'POST'
     const body = JSON.stringify({ item })
 
     return fetch(url, { headers, method, body })
-      .then(response => {
+      .then((response) => {
         if (response.status === 422) {
-          return response.json().then(err => { throw err })
+          return response.json().then((err) => { throw err })
         }
         return response
       })
@@ -55,9 +55,7 @@ function resetForm (entity) {
 }
 
 export function createChangeStars (entity) {
-  return (count) => {
-    return (dispatch) => {
-      dispatch(actions.change(modelName(entity, 'stars'), count))
-    }
+  return count => (dispatch) => {
+    dispatch(actions.change(modelName(entity, 'stars'), count))
   }
 }

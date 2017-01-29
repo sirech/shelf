@@ -1,8 +1,8 @@
 export const modelName = (entity, field) => {
   const model = `new-${entity}`
-  return field ? model + `.${field}` : model
+  return field ? `${model}.${field}` : model
 }
 
-export const formName = (entity) => `redux-${entity}-form`
+export const formName = entity => `redux-${entity}-form`
 
-export const ownReducerName = (entity) => `creator-${entity}`
+export const ownReducerName = entity => `creator-${entity}`

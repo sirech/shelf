@@ -21,7 +21,7 @@
     "initialData": {}
   },
   "eslintConfig": {
-    "extends": "./.eslintrc"
+    "extends": ".eslintrc"
   },
   "stylelint": {
     "extends": "stylelint-config-standard"
@@ -65,6 +65,7 @@
     "eslint-config-standard-jsx": "^3.2.0",
     "eslint-config-standard-react": "^4.2.0",
     "eslint-plugin-flowtype": "^2.30.0",
+    "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-react": "^6.9.0",

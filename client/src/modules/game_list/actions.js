@@ -9,9 +9,9 @@ const requestGames = () => ({
   type: REQUEST_GAMES
 })
 
-const receiveGames = (games) => ({
+const receiveGames = games => ({
   type: RECEIVE_GAMES,
-  games: games
+  games
 })
 
 export function fetchGames (year) {
@@ -19,10 +19,10 @@ export function fetchGames (year) {
     dispatch(requestGames())
 
     const url = prepareUrl(`/rest/games?year=${year}`)
-    const headers = { 'Accept': 'application/json' }
+    const headers = { Accept: 'application/json' }
 
     return fetch(url, { headers })
-      .then((response) => response.json())
-      .then((data) => dispatch(receiveGames(data)))
+      .then(response => response.json())
+      .then(data => dispatch(receiveGames(data)))
   }
 }

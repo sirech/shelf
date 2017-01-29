@@ -27,9 +27,9 @@ function insertResult (state, result, comesAfterNewElement) {
 
 export function updateCounter (state, year) {
   if (!state.entities.years[year]) {
-    state = insertEntity(state, 'years', { year: year, count: 0 }, 'year')
-    state = insertResult(state, year, (e) => parseInt(e) < parseInt(year))
+    state = insertEntity(state, 'years', { year, count: 0 }, 'year')
+    state = insertResult(state, year, e => parseInt(e) < parseInt(year))
   }
 
-  return update(state, { entities: { years: { [year]: { count: { $apply: (n) => n + 1 } } } } })
+  return update(state, { entities: { years: { [year]: { count: { $apply: n => n + 1 } } } } })
 }

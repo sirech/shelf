@@ -15,12 +15,12 @@ function addBook (books, activeYear, book) {
 
 function books (state = {}, action) {
   switch (action.type) {
-  case RECEIVE_BOOKS:
-    return { ...state, books: action.books }
-  case actionType('books', 'success'):
-    return { ...state, books: addBook(state.books, state.activeYear, action.response) }
-  default:
-    return state
+    case RECEIVE_BOOKS:
+      return { ...state, books: action.books }
+    case actionType('books', 'success'):
+      return { ...state, books: addBook(state.books, state.activeYear, action.response) }
+    default:
+      return state
   }
 }
 
