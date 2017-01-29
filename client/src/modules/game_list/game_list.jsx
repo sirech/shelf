@@ -37,7 +37,7 @@ class GameList extends React.Component {
           <GameCreator />
           <ul className='list-group list-unstyled m-b-0'>
             <CSSTransitionGroup transitionName={animate} transitionEnterTimeout={500} transitionLeaveTimeout={1} >
-              {games.map((game) =>
+              {games.map(game =>
                 <Game key={game.id} {...game} />
                )}
             </CSSTransitionGroup>

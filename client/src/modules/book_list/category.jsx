@@ -13,7 +13,7 @@ const Category = ({name, books}) => (
     </div>
     <ul className='list-unstyled mb-0'>
       <CSSTransitionGroup transitionName={animate} transitionEnterTimeout={500} transitionLeaveTimeout={1} >
-        {books.map((book) =>
+        {books.map(book =>
           <Book key={book.id} {...book} />
          )}
       </CSSTransitionGroup>

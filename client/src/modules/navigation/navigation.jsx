@@ -18,7 +18,7 @@ class Navigation extends React.Component {
     return (
       <div className='list-group'>
         <CSSTransitionGroup transitionName={animate} transitionEnterTimeout={1000} transitionLeaveTimeout={1} >
-          {result.map((year) =>
+          {result.map(year =>
             <Item key={year} entity={entity} activeYear={activeYear} {...entities.years[year]} />
            )}
         </CSSTransitionGroup>

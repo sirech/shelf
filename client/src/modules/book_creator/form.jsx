@@ -39,7 +39,7 @@ class Form extends React.Component {
 
           <FieldHelper name='category'>
             <select className='form-control' id='book_category'>
-              {INITIAL_DATA.categories.map((category) =>
+              {INITIAL_DATA.categories.map(category =>
                 <option key={category}>{category}</option>
                )}
             </select>
@@ -57,7 +57,7 @@ Form.propTypes = {
   changeStars: PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   stars: state[modelName('books')].stars
 })
 

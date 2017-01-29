@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes } from 'react'
 import classNames from 'classnames'
 
 import styles from './styles.css'
 
 const Stars = ({count, handleClick}) => (
   <span className={`${styles.stars}`}>
-    {[...Array(5).keys()].map((i) =>
+    {[...Array(5).keys()].map(i =>
       <i key={i} onClick={() => handleClick(i + 1)} className={classNames('fa', { 'fa-star-o': i >= count, 'fa-star': i < count })} />
      )}
   </span>
@@ -18,7 +18,7 @@ Stars.propTypes = {
 
 Stars.defaultProps = {
   count: 1,
-  handleClick: (e) => e
+  handleClick: e => e
 }
 
 export default Stars

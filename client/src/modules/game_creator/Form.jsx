@@ -39,7 +39,7 @@ class Form extends React.Component {
 
           <FieldHelper name='platform'>
             <select className='form-control' id='game_platform'>
-              {INITIAL_DATA.platforms.map((platform) =>
+              {INITIAL_DATA.platforms.map(platform =>
                 <option key={platform}>{platform}</option>
                )}
             </select>
@@ -57,7 +57,7 @@ Form.propTypes = {
   changeStars: PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   stars: state[modelName('games')].stars
 })
 

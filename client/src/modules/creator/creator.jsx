@@ -73,12 +73,10 @@ export const creatorFactory = ({entity, Form, headline}) => {
   return Creator
 }
 
-const mapStateToPropsFactory = (entity) => {
-  return (state) => ({
-    opened: state[ownReducerName(entity)].opened,
-    disabled: !state[formName(entity)].$form.valid || state[formName(entity)].$form.submitted
-  })
-}
+const mapStateToPropsFactory = entity => state => ({
+  opened: state[ownReducerName(entity)].opened,
+  disabled: !state[formName(entity)].$form.valid || state[formName(entity)].$form.submitted
+})
 
 const connectCreator = ({entity, Form, headline, initialState}) => {
   registerCreatorReducer(entity, initialState)

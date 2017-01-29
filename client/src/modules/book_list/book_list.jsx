@@ -26,7 +26,7 @@ class BookList extends React.Component {
   }
 
   groupByCategory (books) {
-    let groups = new Map()
+    const groups = new Map()
 
     for (const book of books) {
       if (!groups.has(book.category)) {
@@ -40,9 +40,9 @@ class BookList extends React.Component {
   }
 
   renderCategoryGroups (groups) {
-    let categories = []
+    const categories = []
 
-    for (let [category, books] of groups.entries()) {
+    for (const [category, books] of groups.entries()) {
       categories.push(<Category key={category} name={category} books={books} />)
     }
 
